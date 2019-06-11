@@ -1,0 +1,64 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.flex {
+  display: flex;
+}
+.flex > div {
+  margin: 10px;
+  padding: 2px;
+  border: 2px solid red;
+  text-align: center;
+}
+.flex > div img {
+  width: 100%;
+}
+.flex02 {
+  display: flex;
+  /*子元素超过容器宽度是否换行，wrap表示换行，默认不还行*/
+  flex-wrap: wrap;
+  /* 水平对齐，space-evenly表示多余的空白平均分配给子元素
+  space-around:多余空白分配给子元素的两端
+  space-between:边界不要分配空白，多余的空白分配给子元素
+  center：子元素全部在中间
+  flex-start:子元素全部在左边
+  flex-end:子元素全部在右边*/
+  justify-content: space-evenly;
+}
+.flex02 img {
+  min-width: 10rem;
+  max-width: 20rem;
+}
+
+.flex03 {
+  width: 1000px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.flex04 > div {
+  display: flex;
+  width: 20rem;
+}
+.flex04 > div div:first-child {
+  /*如果压力布局的子元素没有设置flex-grow,子元素的宽度会被压缩成内容的宽度，
+  如果设置了flex-grow,子元素的宽度会安照数字的被数分配宽度*/
+  flex-grow: 1;
+}
+.div-con{
+  position: relative;
+}
+.div-left{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.div-right{
+  position: absolute;
+  top:0px;
+  right: 0px;
+}
+.div-center{
+  text-align: center;
+}

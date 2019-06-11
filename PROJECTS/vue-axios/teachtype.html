@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>教程分类管理</title>
+  <link rel="stylesheet" href="css/teachtype.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="tbTeachType.typeName" placeholder="分类名称">
+      <input type="text" v-model="tbTeachType.iconfont" placeholder="分类iconfont">
+      <input type="text" v-model="tbTeachType.info" placeholder="分类描述">
+      <select v-if="modify" v-model="tbTeachType.enable">
+        <option value="y">启用</option>
+        <option value="n">停用</option>
+      </select>
+      <button @click="addType()" v-if="!modify">添加</button>
+      <button v-if="modify" @click="modifyType()">修改</button>
+      <button v-if="modify" @click="hideModify()">取消</button>
+    </div>
+    <table class="mytable animated bounceInRight">
+      <tr class="head">
+        <th>编号</th>
+        <th>名称</th>
+        <th>iconfont</th>
+        <th>描述</th>
+        <th>是否启用</th>
+        <th>最后修改时间</th>
+        <th>操作</th>
+      </tr>
+      <tr v-for="d in types" :class={active:d.ttid==tbTeachType.ttid}>
+        <td>{{d.ttid}}</td>
+        <td>{{d.typeName}}</td>
+        <td>{{d.iconfont}}</td>
+        <td>{{d.info}}</td>
+        <td>
+          <span v-if="d.enable=='y'" class="enable">启用中</span>
+          <span v-else class="disable">已停用</span>
+        </td>
+        <td>
+          <span v-text="showtime(d.lastupdate)"></span>
+        </td>
+        <td>
+          <button @click="showModify(d)">修改</button>
+        </td>
+      </tr>
+    </table>
+
+    <div style="text-align: center;">
+      <select v-model="page.pageSize" @change="resize()">
+        <option v-for="p in pages" :value="p">每页{{p}}笔</option>
+      </select>
+      <button @click="topage(1)">首页</button>
+      <button @click="topage(page.pageNumber-1)">上一页</button>
+      <span>
+        {{page.total}}/{{page.pageNumber}}/{{page.pageCount}}
+      </span>
+      <button @click="topage(page.pageNumber+1)">下一页</button>
+      <button @click="topage(page.pageCount)">尾页</button>
+    </div>
+  </div>
+
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/teachtype.js"></script>
+</body>
+
+</html>

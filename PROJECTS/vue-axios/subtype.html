@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <select v-model="tbTeachSubtype.ttid">
+        <option value="-1">====请选择====</option>
+        <option v-for="t in types" :value="t.ttid">{{t.typeName}}</option>
+      </select>
+      <input type="text" v-model="tbTeachSubtype.subtypeName" placeholder="小类名称">
+      <input type="text" v-model="tbTeachSubtype.iconfont" placeholder="iconfont">
+      <input type="text" v-model="tbTeachSubtype.info" placeholder="描述">
+      <select v-if="modify" v-model="tbTeachSubtype.enable">
+        <option value="y">启用</option>
+        <option value="n">禁用</option>
+      </select>
+      <button v-if="inmodify" @click="modify()">修改</button>
+      <button v-if="!inmodify" @click="add()">添加</button>
+      <button v-if="inmodify" @click="cancel()">取消</button>
+    </div>
+
+    <table style="width: 100%;" class="animated bounceInRight">
+      <tr>
+        <td>编号</td>
+        <td>所属大类</td>
+        <td>小类名称</td>
+        <td>iconfont</td>
+        <td>小类描述</td>
+        <td>是否启用</td>
+        <td>最后修改时间</td>
+        <td>操作</td>
+      </tr>
+      <tr v-for="d in list">
+        <td>{{d.tstid}}</td>
+        <td>
+          <span v-text="showTypeName(d.ttid)"></span>
+        </td>
+        <td>{{d.subtypeName}}</td>
+        <td>{{d.iconfont}}</td>
+        <td>{{d.info}}</td>
+        <td>
+          <span v-if="d.enable=='y'">启用中</span>
+          <span v-else>已停用</span>
+        </td>
+        <td>
+          <span v-text="showtime(d.lastupdate)"></span>
+        </td>
+        <td>
+          <button @click="toModify(d)">修改</button>
+        </td>
+      </tr>
+    </table>
+
+    <div style="text-align: center;">
+      <select v-model="page.pageSize" @change="resize()">
+        <option v-for="p in pages" :value="p">每页{{p}}笔</option>
+      </select>
+      <button @click="topage(1)">首页</button>
+      <button @click="topage(page.pageNumber-1)">上一页</button>
+      <span>
+        {{page.total}}/{{page.pageNumber}}/{{page.pageCount}}
+      </span>
+      <button @click="topage(page.pageNumber+1)">下一页</button>
+      <button @click="topage(page.pageCount)">尾页</button>
+    </div>
+  </div>
+
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/subtype.js"></script>
+</body>
+
+</html>

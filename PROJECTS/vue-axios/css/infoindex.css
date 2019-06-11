@@ -1,0 +1,8 @@
+body{
+  border:0px;
+  margin:0px;
+}
+.infos{
+  display: flex;
+  flex-wrap: wrap;
+}

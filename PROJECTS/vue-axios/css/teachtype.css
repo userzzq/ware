@@ -1,0 +1,28 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
+.mytable{
+  width: 100%;
+  border-collapse: collapse;
+}
+.mytable th{
+  border-top:1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background-color: rgb(184, 189, 190);
+  text-align: left;
+}
+.mytable td{
+  border-bottom: 1px solid #000000;
+}
+.mytable tr:hover,
+.mytable tr.active{
+  background-color: rgb(70, 182, 226);
+}
+.enable{
+  color:#0059ff85;
+}
+.disable{
+  color: red;
+}

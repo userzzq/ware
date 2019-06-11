@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>后台</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/iconfont.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="heade">   
+      <span><i class="iconfont" style="font-size:1.5rem;">&#xe652;</i>欢迎:</span>
+      <span v-text="adminuser.username"></span>
+      <div class="buttons"> 
+       
+        <span   v-for="m in menus" :class="{active:menu.page==m.page}" @click="changeMenu(m);">{{m.text}}</span>
+        <span @click="logout();">安全退出</span>
+      </div>
+    </div>
+    <div class="table-a">
+      <iframe v-bind:src="menu.page" frameborder="0" frameborder="0" style="width:100%;min-height:90vh;"></iframe>    
+    </div>
+  </div>
+
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

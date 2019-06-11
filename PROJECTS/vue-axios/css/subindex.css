@@ -1,0 +1,31 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+* {
+  word-break: break-all;
+}
+
+.logos {
+  display: flex;
+  text-align: center;
+}
+
+.logos .iconfont {
+  font-size: 10rem;
+}
+
+.menus {
+  text-align: right;
+  /* padding: 0.5rem 0rem; */
+}
+
+.logos > div {
+  cursor: pointer;
+}
+
+.menus span:hover {
+  color: #0000ff;
+  text-decoration: underline;
+  cursor: pointer;
+}

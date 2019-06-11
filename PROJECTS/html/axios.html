@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>axios</title>
+</head>
+
+<body>
+  <div id="vueapp">
+    <!-- v-text是显示文本(如果有html标记转义) -->
+    <h1 v-text="title"></h1>
+    <!-- {{title}}是显示title变量 -->
+    <h1>{{title}}</h1>
+    <!-- v-model表示双向绑定 -->
+    <input type="text" v-model="title">
+    <div>
+      <!-- v-on:事件名称="调用的方法(在methods里面定义)" -->
+      <button v-on:click="showTitle();">事件1</button>
+      <!-- @事件名称="调用的方法,没有参数的方法可以不要()" -->
+      <button @click="showTitle();">事件2</button>
+    </div>
+
+    <h1>axios</h1>
+    <div>
+      <input type="text" v-model="echo">
+      <button @click="ajax();">ajax测试</button>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/axios.js"></script>
+</body>
+
+</html>

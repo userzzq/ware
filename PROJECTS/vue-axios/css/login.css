@@ -1,0 +1,82 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url('../images/timg.jpg');
+  background-size: cover;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  /*垂直对齐方式  */
+  align-items: center;
+  color: #fff;
+}
+.container > div {
+  /* 登录 */
+  margin-left: 20rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-bottom: 1px solid rgba(101, 104, 104, 0.8);
+}
+.form {
+  padding: 1rem;
+}
+/* input {
+  border: 1px;
+  width: 2rem;
+  height: 1rem;
+}
+input:focus {
+  border: 0px;
+} */
+.form > div {
+  background-color: #ffffff;
+  margin-bottom: 0.5rem;
+  padding:0.2rem;
+  border-radius:0.2rem;
+  border: 1px solid transparent;
+}
+.form input{
+  border-width: 0px;
+  outline: none;
+  width: 20rem;
+  font-size: 1rem;
+}
+.form > div label span{
+ color: #444444;
+}
+.form > div:focus-within{
+  /* 当元素里面有输入焦点的元素时套用 */
+  box-shadow: 0px 0px 2rem rgba(0, rgb(52, 54, 134), blue, alpha);
+  border-color: #0000ff;
+}
+.form .buttons{
+  background-color: transparent;
+  text-align: center;
+}
+.form .buttons span{
+ background-color: rgb(56, 55, 56);
+ padding:0.2rem 2rem;
+ margin:1rem 0.5rem;
+ border-radius: 0.2rem;
+}
+.form .buttons span:hover{
+  background-color: rgb(28, 29, 29);
+  cursor: pointer;
+}
+.form .error{
+  text-align: center;
+  color:#ff0000;
+  font-weight: bold;
+  background-color: transparent;
+}

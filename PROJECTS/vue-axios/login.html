@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>df</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/iconfont.css">
+</head>
+
+<body>
+  <div class="container" id="app">
+    <div>
+      <div class="title">用户登录</div>
+      <div class="form">
+        <div>
+          <label>
+            <span class="iconfont">&#xe63d;</span><input v-model="tbAdmin.username" type="text" placeholder="请输入登录名称">
+          </label>
+        </div>
+        <div>
+          <label>
+            <span class="iconfont">&#xe603;</span><input v-model="tbAdmin.password" type="password" placeholder="请输入登录密码">
+          </label>
+        </div>
+        <div class="buttons">
+          <span @click="login();">登录<i class="iconfont">&#xe653;</i></span>
+          <span @click="reset();">重置<i class="iconfont">&#xe609;</i></span>
+        </div>
+        <!-- v-if如果表达是true就显示元素,否则就删除元素
+            v-html单向输出model中的值，可以包含html标记
+            v-text单向输出model中的值，html标记都会被转义
+        -->
+        <div class="error" v-if="error" v-html="error"></div>
+      </div>
+    </div>
+  </div>
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/login.js"></script>
+</body>
+
+</html>

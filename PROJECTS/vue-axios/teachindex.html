@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习</title>
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <style>
+  .icons{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .icons>div{
+    max-width:12rem;
+    background-color: rgba(0,0, 0, 0.6);
+    color: #ffffff;
+    margin: 0.2rem;
+    text-align:center;
+  }
+  .icons .iconfont {
+      font-size: 10rem;
+    }
+  .icons>div:hover{
+    cursor: pointer;
+    animation: ani 1s infinite;
+  }
+  @keyframes ani{
+    0%{
+      text-shadow: 0px 0px 0rem #ff0000;
+    }
+    100%{
+      text-shadow: 0px 0px 2rem #ff0000;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="icons animated bounceIn">
+      <div v-for="t in types" :title="t.info" @click="tosub(t);">
+        <i class="iconfont" v-html="t.iconfont"></i>
+        <div>{{t.typeName}}</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/teachindex.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  height: 60vh;
+  /* 水平居中 */
+  justify-content: center;
+  /* 垂直居中 */
+  align-items: center;
+}
+.login-div {
+  width: 18rem;
+  border: 0.1rem solid #aa0000;
+  border-radius: 0.5rem;
+}
+.title {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: #aa0000;
+  color: #ffffff;
+  padding: 0.3rem;
+}
+.form-div {
+  padding: 1rem;
+}
+.form-div > div {
+  margin: 0.7rem;
+  background-color: #eeeeee;
+  border: 0.2rem solid #cccccc;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.form-div input {
+  width: 90%;
+  border: none;
+  height: 100%;
+}

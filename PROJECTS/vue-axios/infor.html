@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>信息管理</title>
+  <link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div style="display:flex;justify-content:flex-end;" >
+      <div v-if="inadd">
+        <select v-model="formdata.ttid" @change="changeType();" id="">
+          <option v-for="t in types" :value="t.ttid">{{t.typeName}}</option>
+        </select>
+        <select v-model="formdata.tbTeachInfo.tstid" id="">
+            <option v-for="st in subtypes" :value="st.tstid">{{st.subtypeName}}</option>
+        </select>
+      </div>
+      <div>
+        <button @click="queryAddBaseInfo();">添加</button>
+      </div>
+    </div>
+    <table style="width:100%;" boder="1"class="animated bounce">
+      <tr>
+        <th>we</th>
+        <th>we</th>
+        <th>ew</th>
+        <th>ew</th>
+        <th>ew</th>
+        <th>ew</th>
+        <th>we</th>
+        <th>we</th>
+        <th>sf</th>
+      </tr>
+      <tr v-for="d in list">
+        <td>{{d.tiid}}</td>
+        <td>{{d.subtype.type.typeName}}</td>
+        <td>{{d.subtype.subtypeName}}</td>
+        <td>{{d.linktype.infoValue}}</td>
+        <td>{{d.info}}</td>
+        <td>{{d.link}}</td>
+        <td>
+            <span v-if="d.enable=='y'">启用中</span>
+            <span v-else>已停用</span>
+        </td>
+        <td>{{d.lastupdate}}</td>
+        <td>
+          <span>修改</span>
+        </td>
+      </tr>
+    </table>
+    <div style="text-align: center;">
+        <select v-model="page.pageSize" @change="resize()">
+          <option v-for="p in pages" :value="p">每页{{p}}笔</option>
+        </select>
+        <button @click="topage(1)">首页</button>
+        <button @click="topage(page.pageNumber-1)">上一页</button>
+        <span>
+          {{page.total}}/{{page.pageNumber}}/{{page.pageCount}}
+        </span>
+        <button @click="topage(page.pageNumber+1)">下一页</button>
+        <button @click="topage(page.pageCount)">尾页</button>
+      </div>
+    <!-- <div>{{list}}</div> -->
+  </div>
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/infor.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.heade {
+  background-color: black;
+  padding: 1.5rem;
+  height: 10px;
+  color: #ffffff;
+  text-align: left;
+}
+.buttons {
+  text-align: right;
+  width: 90%;
+  float: right;
+}
+.buttons span {
+  background-color: rgb(23, 23, 34);
+  padding: 0.2rem 2rem;
+  margin: 0.5rem 0.5rem;
+}
+.buttons span:hover {
+  border: 0.1rem solid #ffffff;
+  cursor: pointer;
+  animation: move 6s infinite linear;
+}
+.buttons span.active{
+  background-color: blue;
+}

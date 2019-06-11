@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>资源</title>
+  <link rel="stylesheet" href="css/infoindex.css">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <span @click="back();">返回</span>
+    </div>
+    <div>
+      {{list}}
+      <hr>
+      {{config}}
+    </div>
+  </div>
+
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/infoindex.js"></script>
+</body>
+
+</html>

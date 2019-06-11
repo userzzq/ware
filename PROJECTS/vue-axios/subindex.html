@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小类</title>
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" href="css/subindex.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="menus">
+      <span @click="back()">返回</span>
+    </div>
+    <div class="logos animated bounceInUp" >
+      <div v-for="d in list" :title="d.info" @click="toinfo(d);">
+        <div>
+          <span class="iconfont" v-html="d.iconfont"></span>
+        </div>
+        <div>
+          {{d.subtypeName}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="libs/axios.min.js"></script>
+  <script src="libs/vue.min.js"></script>
+  <script src="js/myutil.js"></script>
+  <script src="js/subindex.js"></script>
+</body>
+
+</html>
